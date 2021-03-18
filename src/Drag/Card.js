@@ -36,9 +36,9 @@ let CardDrag = ({ data, boxId, addArrow, setArrows, upDateElemtent }) => {
     window.addEventListener("resize", deBounceed);
 
     return () => window.removeEventListener("resize", deBounceed);
-  }, [dimention]);
+  }, [dimention, setArrows]);
 
-  let { text, pageX, pageY, offsetHeight, offsetWidth, x, y } = data;
+  let { text, x, y } = data;
   return (
     <Draggable
       position={{

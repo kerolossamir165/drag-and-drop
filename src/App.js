@@ -58,14 +58,14 @@ function App() {
   function handelElement(ele, data) {
     let rect = ele.target.getBoundingClientRect();
 
-    let { clientX, clientY, pageX, pageY, offsetX, offsetY } = ele;
+    let { pageX, pageY } = ele;
 
     let { x, y } = data;
 
     let { innerText, offsetHeight, offsetWidth } = data.node;
 
-    let left = ele.pageX - offsetX - offsetWidth;
-    let top = ele.pageY - offsetY - offsetHeight;
+    // let left = ele.pageX - offsetX - offsetWidth;
+    // let top = ele.pageY - offsetY - offsetHeight;
 
     setElement((prev) => {
       return [
@@ -100,9 +100,8 @@ function App() {
   }
 
   return (
-    <div style={{display: "flex" }}>
-      <div style={{ border: "1px solid #f00" ,     height: '90vh',
-    width: '200px'}}>
+    <div style={{ display: "flex" }}>
+      <div style={{ border: "1px solid #f00", height: "90vh", width: "200px" }}>
         <Draggable
           onStop={(e, data: Object) => {
             if (e.clientX > 300) {
